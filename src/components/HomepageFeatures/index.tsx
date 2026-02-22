@@ -108,7 +108,7 @@ const GameList: GameItem[] = [
     imagePath: '/img/games/goemon64.jpg',
     ports: [
       {
-        name: 'Goemon 64 Recompiled',
+        name: 'Goemon 64: Recompiled',
         tags: ['Multiplayer', 'Enhanced Graphics', 'Widescreen', 'Native PC'],
         downloadsUrl: 'https://github.com/klorfmorf/Goemon64Recomp/releases',
       },
