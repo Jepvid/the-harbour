@@ -8,13 +8,17 @@ Essential tools and resources for Ship of Harkinian mod development.
 
 The primary Blender plugin for creating and exporting models, animations, and scenes for N64 games.
 
-**Repository:** https://github.com/HarbourMasters/fast64
+**Repository:** https://github.com/HarbourMasters/fast64/tree/legacy
 
 Fast64 allows you to:
 - Export custom models and textures
 - Create and edit animations
 - Export scene geometry
 - Configure materials and display lists
+
+:::warning 
+Needs specific version of Decomp in order to import original assets. Information about decomp versioning is in `Known Issues`.
+:::
 
 ### O2R Workspace (Web Tool)
 
