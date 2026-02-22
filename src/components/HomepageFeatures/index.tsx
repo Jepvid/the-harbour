@@ -1,68 +1,222 @@
 import type {ReactNode} from 'react';
+import {useMemo} from 'react';
 import clsx from 'clsx';
-import Heading from '@theme/Heading';
+import Link from '@docusaurus/Link';
 import styles from './styles.module.css';
 
-type FeatureItem = {
-  title: string;
-  Svg: React.ComponentType<React.ComponentProps<'svg'>>;
-  description: ReactNode;
+type PortTag = 'Mod Support' | 'Multiplayer' | 'Enhanced Graphics' | 'HD Textures' | 'Widescreen' | 'Native PC';
+
+type Port = {
+  name: string;
+  tags: PortTag[];
+  docsPath?: string;
+  downloadsUrl?: string;
 };
 
-const FeatureList: FeatureItem[] = [
+type GameItem = {
+  title: string;
+  imagePath: string;
+  ports: Port[];
+};
+
+const GameList: GameItem[] = [
   {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
-    description: (
-      <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
-      </>
-    ),
+    title: 'The Legend of Zelda: Ocarina of Time',
+    imagePath: '/img/games/oot.webp',
+    ports: [
+      {
+        name: 'Ship of Harkinian',
+        tags: ['Mod Support', 'Enhanced Graphics', 'Widescreen', 'Native PC'],
+        downloadsUrl: 'https://github.com/HarbourMasters/shipwright/releases',
+      },
+    ],
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
-    description: (
-      <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
-      </>
-    ),
+    title: 'The Legend of Zelda: Majora\'s Mask',
+    imagePath: '/img/games/marorasmask.webp',
+    ports: [
+      {
+        name: '2 Ship 2 Harkinian',
+        tags: ['Mod Support', 'Enhanced Graphics', 'Widescreen', 'Native PC'],
+        docsPath: '/docs/2ship2harkinian',
+        downloadsUrl: 'https://github.com/HarbourMasters/2ship2harkinian/releases',
+      },
+      {
+        name: 'Zelda 64: Recompiled',
+        tags: ['Mod Support', 'Enhanced Graphics', 'Widescreen', 'Native PC'],
+        downloadsUrl: 'https://github.com/Zelda64Recomp/Zelda64Recomp/releases',
+      },
+    ],
   },
   {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
-    description: (
-      <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
-      </>
-    ),
+    title: 'Super Mario 64',
+    imagePath: '/img/games/sm64.webp',
+    ports: [
+      {
+        name: 'GhostShip',
+        tags: ['Multiplayer', 'Enhanced Graphics', 'Widescreen', 'Native PC'],
+        downloadsUrl: 'https://github.com/HarbourMasters/ghostship/releases',
+      },
+    ],
+  },
+  {
+    title: 'Mario Kart 64',
+    imagePath: '/img/games/mariokart.webp',
+    ports: [
+      {
+        name: 'Mario Kart 64: Recompiled',
+        tags: ['Multiplayer', 'Enhanced Graphics', 'Widescreen', 'Native PC'],
+        downloadsUrl: 'https://github.com/sonicdcer/MarioKart64Recomp/releases',
+      },
+      {
+        name: 'Spaghetti Kart',
+        tags: ['Multiplayer', 'Native PC'],
+        downloadsUrl: 'https://github.com/HarbourMasters/SpaghettiKart/releases',
+      },
+    ],
+  },
+  {
+    title: 'Banjo-Kazooie',
+    imagePath: '/img/games/banjokazooie.webp',
+    ports: [
+      {
+        name: 'Banjo: Recompiled',
+        tags: ['Enhanced Graphics', 'Widescreen', 'Native PC'],
+        downloadsUrl: 'https://github.com/BanjoRecomp/BanjoRecomp/releases'
+      },
+    ],
+  },
+  {
+    title: 'Starfox 64',
+    imagePath: '/img/games/starfox.webp',
+    ports: [
+      {
+        name: 'Starfox 64: Recompiled',
+        tags: ['Multiplayer', 'Enhanced Graphics', 'Widescreen', 'Native PC'],
+        downloadsUrl: 'https://github.com/sonicdcer/Starfox64Recomp/releases',
+      },
+      {
+        name: 'Starship',
+        tags: ['Mod Support', 'Enhanced Graphics', 'Widescreen', 'Native PC'],
+        downloadsUrl: 'https://github.com/HarbourMasters/Starship/releases',
+      },
+    ],
+  },
+  {
+    title: 'Goemon\'s Great Adventure',
+    imagePath: '/img/games/goemon64.jpg',
+    ports: [
+      {
+        name: 'Goemon 64 Recompiled',
+        tags: ['Multiplayer', 'Enhanced Graphics', 'Widescreen', 'Native PC'],
+        downloadsUrl: 'https://github.com/klorfmorf/Goemon64Recomp/releases',
+      },
+    ],
+  },
+  {
+    title: 'Dinosaur Planet',
+    imagePath: '/img/games/dinosaurplanet.jpg',
+    ports: [
+      {
+        name: 'Dinosaur Planet: Recompiled',
+        tags: ['Enhanced Graphics', 'Widescreen', 'Native PC'],
+        downloadsUrl: 'https://github.com/DinosaurPlanetRecomp/dino-recomp/releases',
+      },
+    ],
+  },
+  {
+    title: 'Perfect Dark',
+    imagePath: '/img/games/perfectdark.webp',
+    ports: [
+      {
+        name: 'Perfect Dark port',
+        tags: ['Multiplayer', 'Enhanced Graphics', 'Widescreen', 'Native PC'],
+        downloadsUrl: 'https://github.com/fgsfdsfgs/perfect_dark/releases',
+      },
+    ],
   },
 ];
 
-function Feature({title, Svg, description}: FeatureItem) {
+// Fisher-Yates shuffle algorithm
+function shuffleArray<T>(array: T[]): T[] {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
+
+function PortBadge({tag}: {tag: PortTag}) {
+  return <span className={styles.portBadge}>{tag}</span>;
+}
+
+function PortItem({port}: {port: Port}) {
   return (
-    <div className={clsx('col col--4')}>
-      <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
+    <div className={styles.portItem}>
+      <div className={styles.portHeader}>
+        <h4 className={styles.portName}>{port.name}</h4>
+        {/* <div className={styles.portTags}>
+          {port.tags.map((tag, idx) => (
+            <PortBadge key={idx} tag={tag} />
+          ))}
+        </div> */}
       </div>
-      <div className="text--center padding-horiz--md">
-        <Heading as="h3">{title}</Heading>
-        <p>{description}</p>
+      <div className={styles.portButtons}>
+         {port.downloadsUrl && (
+           <Link
+             className="button button--primary button--sm"
+             to={port.downloadsUrl}>
+             Downloads
+           </Link>
+         )}
+         {port.docsPath && (
+           <Link
+             className="button button--secondary button--sm"
+             to={port.docsPath}>
+             Docs
+           </Link>
+         )}
+       </div>
+    </div>
+  );
+}
+
+function GameCard({game}: {game: GameItem}) {
+  return (
+    <div className={clsx('col col--4', styles.gameCard)}>
+      <div className={styles.gameCardInner}>
+        <div className={styles.gameImage}>
+          <img src={game.imagePath} alt={game.title} />
+        </div>
+        <div className={styles.gameContent}>
+          {/* <Heading as="h3" className={styles.gameTitle}>{game.title}</Heading> */}
+          <div className={styles.portsList}>
+            {game.ports.map((port, idx) => (
+              <PortItem key={idx} port={port} />
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
 }
 
 export default function HomepageFeatures(): ReactNode {
+  // Shuffle ports for each game on page load to prevent bias
+  const shuffledGameList = useMemo(() => {
+    return GameList.map(game => ({
+      ...game,
+      ports: shuffleArray(game.ports),
+    }));
+  }, []);
+
   return (
     <section className={styles.features}>
       <div className="container">
         <div className="row">
-          {FeatureList.map((props, idx) => (
-            <Feature key={idx} {...props} />
+          {shuffledGameList.map((game, idx) => (
+            <GameCard key={idx} game={game} />
           ))}
         </div>
       </div>
