@@ -21,3 +21,6 @@ This is a project done by volunteers during their spare time for free. The work 
 
 ## Why is this called 2 Ship 2 Harkinian?
 I don't know.
+
+## Can I Load existing ROM Hacks?
+No. For ROM hacks to be playable on these ports would require the creator of the hack to recreate their changes within the port's codebase, and distribute a custom build. Recomp is a more realistic option for this.
