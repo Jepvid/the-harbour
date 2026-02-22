@@ -26,4 +26,4 @@ Make sure to check and fix it by trial and error
 
 Parts of Links torso gets stretched to infinity
 
-Workaround: Every bone on Link needs to have geometry assigned in its vertex group. Can be a single tri that have been scaled to `0`
+Workaround: Every bone on Link needs to have geometry assigned in its vertex group. Can be a single tri that have been scaled to `0`. Commonly missed bones are `Collar` and `Sheath` bones
