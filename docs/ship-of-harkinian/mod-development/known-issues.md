@@ -10,10 +10,16 @@ Workarounds: None discovered.
 
 ## Base texture extraction and manifest generation failing in Retro
 
-Affects: OTR/O2R texture extraction with current versions of Retro
+Affects: OTR/O2R texture extraction with Retro 0.2.0
 Description: Attempting to unpack asset archives with the latest versions of Retro produces incomplete results; often just a font file, but sometimes an incomplete set of textures.
 
 Workarounds: Retro 0.0.5 alpha does not appear to have this issue - using this version to unpack the archives, and the latest version to pack them, appears to be the best solution for now.
+
+Workarounds: Update to Retro 0.2.1 as texture extraction have been fixed in that version
+
+## Retro Linux .Appimage
+
+Latest Appimage for Retro can be stuck on a blackscreen. If that happens then use windows version through wine or proton or use Retro 0.0.5
 
 ## Retro cannot process images with dots in the filename
 
@@ -22,3 +28,22 @@ Description: Unpacking a custom model's mod archive and replacing the textures w
 This would be avoidable, but newer versions of Fast64 forcibly include identifying format data between dots, making it impossible.
 
 Workarounds: Must use an older version of Fast64, and avoid using texture filenames with multiple dots, or alter the exported texture and material files in a text editor to remove the extra dots and correct the data.
+
+## Ship of Harkinian Fast64 and Decomp issues
+
+Ship of Harkinian requires specific versions of the Ocarina of Time decomp and Fast64
+
+There are 2 versions of Fast64 that can be used for Ship of Harkinian modding.
+
+Legacy Fast64 by HM64 - https://github.com/HarbourMasters/fast64/tree/legacy
+Fast64 HM64 Fork by Jameriquiah - https://github.com/Jameriquiah/fast64/tree/hm64
+
+**LEGACY Fast64**
+Requires a specific version of https://github.com/zeldaret/oot
+
+Do the install in the readme but before step **3** do `git checkout 21cb04d` to downgrade decomp to a version compatible with Legacy Fast64
+
+**Fast64 HM64 Fork by Jameriquiah**
+Requires a specific version of https://github.com/zeldaret/oot
+
+Do the install in the readme but before step **3** do `git checkout 0c6c112` to downgrade decomp to a version compatible with Jamer's Fast64
