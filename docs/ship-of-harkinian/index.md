@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Ship of Harkinian
+# Home
 
 Ship of Harkinian is a PC port of The Legend of Zelda: Ocarina of Time, featuring enhanced graphics, quality of life improvements, and mod support.
 
