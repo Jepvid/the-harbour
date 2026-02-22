@@ -28,6 +28,7 @@ const GameList: GameItem[] = [
         name: 'Ship of Harkinian',
         tags: ['Mod Support', 'Enhanced Graphics', 'Widescreen', 'Native PC'],
         downloadsUrl: 'https://github.com/HarbourMasters/shipwright/releases',
+        docsPath: '/docs/ship-of-harkinian',
       },
     ],
   },
