@@ -61,6 +61,9 @@ Advanced technical information:
 ### [Known Issues](./known-issues.md)
 Common problems and their solutions.
 
+### [Common Misstakes](./common-mistakes.md)
+Common mod misstakes when making mods
+
 ## Quick Start Path
 
 **For Beginners:**
