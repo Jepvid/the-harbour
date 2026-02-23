@@ -38,6 +38,8 @@ Linux: Ensure the file is set as an executable, and run in a terminal from the l
 Note: The tool only supports Objects as of this writing.
 Objects with multiple Segment values are not supported by this tool; an error will display, prompting you to handle the files manually.
 
+**NOTE:** *If you are using Jameriquiah's Fast64 Fork, segcalls can be automatically added to your exported files via the segment checkboxes in the material settings, same rules states above still apply.*
+
 ## Exploding "Body Break" Enemies
 
 Modders seeking to replace enemies must be aware that to prevent vertex explosion on all enemies using the "body break" system will require the mesh to be designed to support it. This means all 'part' meshes should be skinned exclusively to one joint; you cannot skin one contiguous mesh surface across two or more joints that break apart. Joints that do not break apart can be skinned as normal.
