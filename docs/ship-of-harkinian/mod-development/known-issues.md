@@ -6,7 +6,7 @@ Affects: Model import/export through Fast64 plugin.
 Description: A significant number of DLs cannot be imported into Blender, reporting the error "Index out of range" when attempting to do so. A null object imports into the Blender scene. Attempting a blind export to affected DLs does not produce functional results.
 Most affected DLs appear to be parented to joints or objects; this relationship is broken in a blind export.
 
-Workarounds: Open the objects C file, e.g. `object_link_child.c` `object_link_boy.c` and use `Ctrl+F` to search for the DL you want to import, when you locate it, look for a line in the DL, beginning with `gsSPMatrix`. Delete this line, its typically at the top of the DL entry, certan DLs like the bunny hood will have multiple of these lines (for the ears), delete them too and reimport.
+Workarounds: Open the object's C file, e.g. `object_link_child.c` `object_link_boy.c` and use `Ctrl+F` to search for the DL you want to import, when you locate it, look for a line in the DL, beginning with `gsSPMatrix`. Delete this line, it's typically at the top of the DL entry, certain DLs like the bunny hood will have multiple of these lines (for the ears), delete them too and reimport.
 
 ## Base texture extraction and manifest generation failing in Retro
 
@@ -47,3 +47,5 @@ Do the install in the readme but before step **3** do `git checkout 21cb04d` to 
 Requires a specific version of https://github.com/zeldaret/oot
 
 Do the install in the readme but before step **3** do `git checkout 0c6c112` to downgrade decomp to a version compatible with Jamer's Fast64
+
+Alternatively, you can also clone and set this fork of decomp up instead, which is already set at the `0c6c112` commit: https://github.com/Jameriquiah/oot
