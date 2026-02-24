@@ -6,7 +6,7 @@ Essential tools and resources for Ship of Harkinian mod development.
 
 The original decomp project for OoT. For code mods this can be useful as sometimes there is additional documentation upstream that hasn't made it's way to our codebase that could help with whatever you are working on.
 
-If you are not looking for documentation, but instead are using decomp in combination with another tool like blender, it is recommended to use commit [0c6c112](https://github.com/zeldaret/oot/tree/0c6c112cb9a3a8f12d0f4865743853857bbdc88e)
+If you are not looking for documentation, but instead are using decomp in combination with another tool like Fast64, it is recommended to use commit [0c6c112](https://github.com/zeldaret/oot/tree/0c6c112cb9a3a8f12d0f4865743853857bbdc88e)
 
 You can directly download the [zip of the codebase here](https://github.com/zeldaret/oot/archive/0c6c112cb9a3a8f12d0f4865743853857bbdc88e.zip) or you can clone with Git:
 ```sh
@@ -33,10 +33,15 @@ https://github.com/HarbourMasters/retro
 TODO
 https://github.com/louist103/future
 
-### OTRMod
+### OTRMod (Web Tool)
 
 TODO
 https://soh.xoas.eu.org/
+
+### O2R Message Editor (Web Tool)
+
+TODO
+https://o2r-message-editor.garrettcox.dev/
 
 ### O2R Workspace (Web Tool)
 
