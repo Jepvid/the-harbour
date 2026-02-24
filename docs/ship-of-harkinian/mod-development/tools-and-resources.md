@@ -98,6 +98,17 @@ Automates the process of adding segment calls to exported models.
 
 ## Reference Materials
 
+### PurpleHato's Asset Database
+
+**https://purplehato.github.io/ZOOT-Database/**
+
+Naming & metadata for the following game assets:
+- Display Lists
+- Segment Calls
+- Animations
+- Sounds
+- Instruments
+
 ### Asset Spreadsheets
 
 **Segment Calls Reference**
