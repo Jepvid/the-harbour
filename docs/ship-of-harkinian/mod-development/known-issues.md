@@ -35,8 +35,8 @@ Ship of Harkinian requires specific versions of the Ocarina of Time decomp and F
 
 There are 2 versions of Fast64 that can be used for Ship of Harkinian modding.
 
-Legacy Fast64 by HM64 - https://github.com/HarbourMasters/fast64/tree/legacy
-Fast64 HM64 Fork by Jameriquiah - https://github.com/Jameriquiah/fast64/tree/hm64
+- Legacy Fast64 by HM64 - https://github.com/HarbourMasters/fast64/tree/legacy
+- Fast64 HM64 Fork by Jameriquiah - https://github.com/Jameriquiah/fast64/tree/hm64
 
 **LEGACY Fast64**
 Requires a specific version of https://github.com/zeldaret/oot
