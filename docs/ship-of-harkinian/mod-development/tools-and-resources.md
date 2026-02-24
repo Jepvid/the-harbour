@@ -2,25 +2,41 @@
 
 Essential tools and resources for Ship of Harkinian mod development.
 
-## Core Tools
+### Decomp
+
+The original decomp project for OoT. For code mods this can be useful as sometimes there is additional documentation upstream that hasn't made it's way to our codebase that could help with whatever you are working on.
+
+If you are not looking for documentation, but instead are using decomp in combination with another tool like blender, it is recommended to use commit [0c6c112](https://github.com/zeldaret/oot/tree/0c6c112cb9a3a8f12d0f4865743853857bbdc88e)
+
+You can directly download the [zip of the codebase here](https://github.com/zeldaret/oot/archive/0c6c112cb9a3a8f12d0f4865743853857bbdc88e.zip) or you can clone with Git:
+```sh
+git clone --revision=0c6c112cb9a3a8f12d0f4865743853857bbdc88e git@github.com:zeldaret/oot.git
+```
 
 ### Fast64
 
-The primary Blender plugin for creating and exporting models, animations, and scenes for N64 games.
+The primary Blender plugin for creating and exporting models, materials, animations for SoH. This is a fork of the original, purpose built for SoH modding.
 
-**Repository:** https://github.com/Jameriquiah/fast64/tree/hm64 [Recommended]
-
-**Repository:** https://github.com/HarbourMasters/fast64/tree/legacy
-
-Fast64 allows you to:
-- Export custom models and textures
-- Create and edit animations
-- Export scene geometry
-- Configure materials and display lists
+**Repository:** https://github.com/Jameriquiah/fast64/tree/hm64
 
 :::warning 
-Needs specific version of Decomp in order to import original assets. Information about decomp versioning is in `Known Issues`.
+Needs specific version of Decomp in order to import original assets. Check the "Decomp" section above
 :::
+
+### Retro
+
+TODO
+https://github.com/HarbourMasters/retro
+
+### Future
+
+TODO
+https://github.com/louist103/future
+
+### OTRMod
+
+TODO
+https://soh.xoas.eu.org/
 
 ### O2R Workspace (Web Tool)
 
@@ -60,6 +76,21 @@ This is ONLY for audio samples, not streamed audio. The sample rate must match t
 - Custom sound effects
 - Replacing any audio sample in the game
 
+### Segment Integrator
+
+Automates the process of adding segment calls to exported models.
+
+**Download:** https://drive.google.com/drive/folders/1ho-0EbIEAO4CInZcMsVCfzQEJYvYKuSY
+
+**Usage:**
+- **Windows:** Drag and drop your Objects folder onto the executable
+- **Linux:** Set as executable and run: `./Segment_Integrator_Linux "path/to/exported/objects/"`
+
+:::note Limitations
+- Only supports Objects as of this writing
+- Objects with multiple Segment values are not supported; an error will display, prompting manual handling
+:::
+
 ## Reference Materials
 
 ### Asset Spreadsheets
@@ -79,48 +110,3 @@ This is ONLY for audio samples, not streamed audio. The sample rate must match t
 **Audio Sample Mapping**
 - Charts all WAV files from decomp to matching sound files in oot.otr
 - https://docs.google.com/spreadsheets/d/1Yf_1Juzj06RZNmuZsWBSSX5ZD7wTRwjf8WxE25-2pJI/edit?usp=sharing
-
-### Music Modding Database
-
-An expanded resource covering musical assets and more, created by the community.
-
-**URL:** https://purplehato.github.io/ZOOT-Database/
-
-## Automated Tools
-
-### Segment Integrator
-
-Automates the process of adding segment calls to exported models.
-
-**Download:** https://drive.google.com/drive/folders/1ho-0EbIEAO4CInZcMsVCfzQEJYvYKuSY
-
-**Usage:**
-- **Windows:** Drag and drop your Objects folder onto the executable
-- **Linux:** Set as executable and run: `./Segment_Integrator_Linux "path/to/exported/objects/"`
-
-:::note Limitations
-- Only supports Objects as of this writing
-- Objects with multiple Segment values are not supported; an error will display, prompting manual handling
-:::
-
-## Community Resources
-
-### GameBanana
-
-The primary repository for finished mods.
-
-**Ship of Harkinian Mods:** https://gamebanana.com/games/16121
-
-### Discord Channels
-
-**WIP Mods Thread:** https://discord.com/channels/808039310850130000/1019646354903027712
-
-For mods still in development and community feedback.
-
-## Getting Started Tips
-
-1. **Start with Fast64** - Learn the basics of model export before diving into complex features
-2. **Use the O2R Workspace** - Great for quick iterations without full build setup
-3. **Reference existing mods** - Download popular mods from GameBanana and study their structure
-4. **Join the Discord** - The community is active and helpful for troubleshooting
-5. **Check the spreadsheets** - Most technical questions are answered in the reference spreadsheets
