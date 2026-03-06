@@ -42,7 +42,7 @@ After conversion you need to adjust the files so they are stored in folders matc
 
 Now pack it into a .o2r file or a .otr file and it should be ready for Ship of Harkinian.
 
-:::tip
+:::note
 Some samples in OoT are reused in multiple places, if you cant find the sample file try to replace something else. Renaming sample files is fine for this step
 :::
 
