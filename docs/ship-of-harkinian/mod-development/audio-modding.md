@@ -21,9 +21,9 @@ Information about the audio files can be found [**here**](https://docs.google.co
 
 This tool can take .wav files and convert it to a format Ship of Harkinian expects samples to be in.
 
-::Warning
+:::warning
 Audio difference between version starting with SoH 9.1. Audio mods made for SoH newer than 9.1 is not compatible version before 9.1
-::
+:::
 
 To explain the warning. Post 9.1 version expects a `_META` in file names while pre 9.1 does not expect it. To make it compatible you either have to remove or add `_META` to your filenames ie `Adult Link - Attack 1_META` for post 9.1 builds while `Adult Link - Attack 1` for pre 9.1 builds
 
@@ -42,9 +42,9 @@ After conversion you need to adjust the files so they are stored in folders matc
 
 Now pack it into a .o2r file or a .otr file and it should be ready for Ship of Harkinian.
 
-::tip
+:::tip
 Some samples in OoT are reused in multiple places, if you cant find the sample file try to replace something else. Renaming sample files is fine for this step
-::
+:::
 
 ## Streamed Audio
 
