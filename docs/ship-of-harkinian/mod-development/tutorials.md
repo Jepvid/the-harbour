@@ -6,10 +6,10 @@ Community-created tutorials and guides for Ship of Harkinian mod development.
 
 ### Setup and Environment
 
-**PxExYxTxOxN's Beginner Setup Guide**
+**Thebes Beginner Setup Guide**
 - Setting up the decomp and basic modding environment
 - Recommended for absolute beginners
-- Uses the older decomp (recommended for learning)
+- Uses the older decomp for Legacy HM64 Fast64
 - https://youtu.be/OP9XFSQY8ps
 
 :::tip
