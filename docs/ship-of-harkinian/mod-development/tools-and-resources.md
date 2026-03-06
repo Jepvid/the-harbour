@@ -17,6 +17,9 @@ git clone --revision=0c6c112cb9a3a8f12d0f4865743853857bbdc88e git@github.com:zel
 
 The primary Blender plugin for creating and exporting models, materials, animations for SoH. This is a fork of the original, purpose built for SoH modding.
 
+:::warning
+If you have done mods using legacy fast64. Jamer's Fast64 import and exports at a different scale compared to legacy
+:::
 **Repository:** https://github.com/Jameriquiah/fast64/tree/hm64
 
 :::warning 
@@ -100,7 +103,7 @@ Automates the process of adding segment calls to exported models.
 
 ### PurpleHato's Asset Database
 
-**https://purplehato.github.io/ZOOT-Database/**
+**https://purplehato.github.io/HM64-DB/oot**
 
 Naming & metadata for the following game assets:
 - Display Lists
@@ -124,5 +127,5 @@ Naming & metadata for the following game assets:
 - https://docs.google.com/spreadsheets/d/e/2PACX-1vSVvtGR-gzvLiNBSfo5JGmRl0dIBq_Lj1rG0iQNE29v0iFvbVopVH3jO8mWdhoq9q7gHx4IJ7kmCUC5/pubhtml?gid=0&single=true
 
 **Audio Sample Mapping**
-- Charts all WAV files from decomp to matching sound files in oot.otr
+- Charts all WAV files from decomp to matching sound files in oot.otr and oot.o2r
 - https://docs.google.com/spreadsheets/d/1Yf_1Juzj06RZNmuZsWBSSX5ZD7wTRwjf8WxE25-2pJI/edit?usp=sharing
