@@ -18,7 +18,7 @@ The table below contains all available save files for each stage of the game's p
 | 03 | Deku Tree | Dungeon Clear | <a href="/soh-casual-save-files/03_deku_clear.sav" download>03_deku_clear.sav</a> |
 | 04 | Dodongo's Cavern | Dungeon Entrance | <a href="/soh-casual-save-files/04_dodongo_entrance.sav" download>04_dodongo_entrance.sav</a> |
 | 05 | Dodongo's Cavern | Before Boss | <a href="/soh-casual-save-files/05_dodongo_boss.sav" download>05_dodongo_boss.sav</a> |
-| 06 | Dodongo's Cavern | Dungeon Clear | <a href="/soh-casual-save-files/05_dodongo_clear.sav" download>05_dodongo_clear.sav</a> |
+| 06 | Dodongo's Cavern | Dungeon Clear | <a href="/soh-casual-save-files/06_dodongo_clear.sav" download>06_dodongo_clear.sav</a> |
 | 07 | Jabu-Jabu's Belly | Dungeon Entrance | <a href="/soh-casual-save-files/07_jabu_entrance.sav" download>07_jabu_entrance.sav</a> |
 | 08 | Jabu-Jabu's Belly | Before Boss | <a href="/soh-casual-save-files/08_jabu_boss.sav" download>08_jabu_boss.sav</a> |
 | 09 | Jabu-Jabu's Belly | Dungeon Clear | <a href="/soh-casual-save-files/09_jabu_clear.sav" download>09_jabu_clear.sav</a> |
