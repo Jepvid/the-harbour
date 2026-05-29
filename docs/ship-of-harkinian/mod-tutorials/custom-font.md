@@ -104,6 +104,10 @@ If a translation genuinely needs more pages than the original provides, ship a c
 
 RTL rendering is not yet supported. It is planned for a future update.
 
+### JPN Untranslated text
+
+Japanese font support for untranslated messages is not currently supported.  This is because Japanese text uses a complex character set (Kanji) that requires extra work to display correctly, and that work is not done yet. If you want Japanese text to use the custom font, you can add a translation for it in your translation file — translated messages will use the custom font just fine.
+
 ---
 
 ## Custom Fonts
