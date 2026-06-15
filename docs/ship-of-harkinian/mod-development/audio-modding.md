@@ -17,7 +17,7 @@ Sequences are midi files that has been converted to a sequence that SoH can take
 
 Sample Replacements requires Jamer's SOH-AudioTool - https://github.com/Jameriquiah/SoH-AudioTool/releases
 
-Information about the audio files can be found [**here**](https://docs.google.com/spreadsheets/u/0/d/1Yf_1Juzj06RZNmuZsWBSSX5ZD7wTRwjf8WxE25-2pJI/htmlview)
+Information about the audio files can be found [**here**](https://purplehato.github.io/HM64-DB/oot/sounds)
 
 This tool can take .wav files and convert it to a format Ship of Harkinian expects samples to be in.
 
