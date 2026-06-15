@@ -32,7 +32,7 @@ You need to prepare audio files for conversion.
 - Match the samplerate (hz) to the target sample being replaced
 - If Replacing instruments/song you need to match pitch/note aswell
 
-Loop points are **NOT** possible in sample replacements. The workaround is to extend the sample to a length it wont be cutoff. 
+Loop points are possible in via Jamer's SOH-AudioTool. Another workaround is to extend the sample to a length it wont be cutoff. 
 
 To adjust samplerate you can do this in Audacity (a free tool). You load your audio and select `Tracks` then select `Resample` to then change the samplerate of the audio.
 
