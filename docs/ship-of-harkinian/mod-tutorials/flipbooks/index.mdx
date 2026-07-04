@@ -74,7 +74,7 @@ If you are still having issues, feel free to ask for help in the soh-modding-dis
 
 ## Vanilla Flipbooks
 
-Navigate to the material for your eyes and set your texture to something with the same dimensions (64x32) as the vanilla eyes (I recommend just using the eyes-open texture from decomp to avoid any potential issues). Next, change your texture format to "Color-Indexed 8-Bit" if it is not already and make sure the Color Count is 255. Now check the "Set Texture Reference" box and set the texture reference to `0x08000000` and the texture size to 64 and 32 respectively. In the palette reference box, enter `objects/object_link_boy/gLinkAdultHeadTLUT` if doing Adult Link or `objects/object_link_child/gLinkChildSkinTLUT` if doing Child Link.
+Navigate to the material for your eyes and set your texture to something with the same dimensions (64x32) as the vanilla eyes (I recommend just using the eyes-open texture from decomp to avoid any potential issues). Next, change your texture format to "Color-Indexed 8-Bit" if it is not already and make sure the Color Count is 255. Then check `Is Vanilla Texture?`. Now check the "Set Texture Reference" box and set the texture reference to `0x08000000` and the texture size to 64 and 32 respectively. In the palette reference box, enter `objects/object_link_boy/gLinkAdultHeadTLUT` if doing Adult Link or `objects/object_link_child/gLinkChildSkinTLUT` if doing Child Link.
 
 Repeat all the same steps for the mouth, except here the texture reference should be `0x09000000` and the dimensions of the texture are 32x32 (meaning texture size should have 32 in both boxes).
 
