@@ -1,6 +1,8 @@
 # Custom SFX Overrides
 
-:::warning This system is in development and has **not** been merged into Ship of Harkinian. Nothing on this page works in current releases, and details (file naming, authoring rules) may still change before it ships. :::
+:::warning 
+This system is in development and has **not** been merged into Ship of Harkinian. Nothing on this page works in current releases, and details (file naming, authoring rules) may still change before it ships. 
+:::
 
 Custom SFX overrides give a **single sound effect** its own audio sample, leaving everything else untouched.
 
