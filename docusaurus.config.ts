@@ -35,6 +35,14 @@ const config: Config = {
     locales: ['en'],
   },
 
+  // Righteous (titles) and Open Sans (body), matching shipofharkinian.com.
+  stylesheets: [
+    {
+      href: 'https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Righteous&display=swap',
+      type: 'text/css',
+    },
+  ],
+
   presets: [
     [
       'classic',
@@ -69,17 +77,11 @@ const config: Config = {
   ],
 
   themeConfig: {
-    // Replace with your project's social card
-    image: 'img/docusaurus-social-card.jpg',
     colorMode: {
       respectPrefersColorScheme: true,
     },
     navbar: {
       title: 'The Harbour',
-      logo: {
-        alt: 'My Site Logo',
-        src: 'img/logo.svg',
-      },
       items: [
         // {
         //   type: 'docSidebar',

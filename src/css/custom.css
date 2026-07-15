@@ -4,27 +4,95 @@
  * work well for content-centric websites.
  */
 
-/* You can override the default Infima variables here. */
+/**
+ * Brand tokens lifted from shipofharkinian.com, so the two sites read as one family.
+ * Orange is the accent (buttons, active nav, admonitions); blue carries links.
+ */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
+  --soh-orange: #eb802b;
+  --soh-link: #5fa4ff;
+  --soh-text: #dadada;
+  --soh-bg: #0e1318;
+  --soh-bg-dark-accent: #0d1014;
+  --soh-bg-accent: #171e27;
+  --soh-bg-light-accent: #1e2732;
+
+  --soh-title-font: 'Righteous', 'Trebuchet MS', sans-serif;
+  --soh-main-font: 'Open Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --ifm-font-family-base: var(--soh-main-font);
+  --ifm-heading-font-family: var(--soh-main-font);
   --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
+/**
+ * Light mode. shipofharkinian.com is dark-only, so this is a derivation rather than a
+ * copy: the raw brand orange only reaches 2.74:1 on white and fails WCAG AA, so the hue
+ * is kept and the lightness dropped until text clears 4.5:1.
+ */
+:root {
+  --ifm-color-primary: #b95c11; /* brand orange darkened to 4.56:1 on white */
+  --ifm-color-primary-dark: #a7530f;
+  --ifm-color-primary-darker: #9d4e0e;
+  --ifm-color-primary-darkest: #82400c;
+  --ifm-color-primary-light: #cc6513;
+  --ifm-color-primary-lighter: #d56a14;
+  --ifm-color-primary-lightest: #ea781c;
+
+  --ifm-link-color: #006dfc; /* brand link blue darkened to 4.57:1 on white */
+  --ifm-link-hover-color: var(--ifm-color-primary);
+
+  --docusaurus-highlighted-code-line-bg: rgba(235, 128, 43, 0.12);
+}
+
+/* Dark mode uses the brand colors as-is; orange clears 6.80:1 on the SoH background. */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-color-primary: var(--soh-orange);
+  --ifm-color-primary-dark: #e57116;
+  --ifm-color-primary-darker: #d86b14;
+  --ifm-color-primary-darkest: #b25811;
+  --ifm-color-primary-light: #ed8f44;
+  --ifm-color-primary-lighter: #ef9751;
+  --ifm-color-primary-lightest: #f2ae77;
+
+  --ifm-link-color: var(--soh-link);
+  --ifm-link-hover-color: var(--soh-orange);
+
+  --ifm-background-color: var(--soh-bg);
+  --ifm-background-surface-color: var(--soh-bg-accent);
+  --ifm-color-content: var(--soh-text);
+  --ifm-heading-color: #ffffff;
+
+  --ifm-navbar-background-color: var(--soh-bg-dark-accent);
+  --ifm-footer-background-color: var(--soh-bg-dark-accent);
+  --ifm-code-background: var(--soh-bg-light-accent);
+
+  --docusaurus-highlighted-code-line-bg: rgba(235, 128, 43, 0.18);
+}
+
+/* Righteous is a display face: brand and page titles only, never body or long headings. */
+.navbar__title,
+.hero__title,
+.markdown > header > h1 {
+  font-family: var(--soh-title-font);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+/* With the logo gone the wordmark is the brand, so give it a little more presence. */
+.navbar__title {
+  font-size: 1.25rem;
+}
+
+/* Tie the navbar to the page with the brand orange rather than a flat border. */
+.navbar {
+  border-bottom: 2px solid var(--ifm-color-primary);
+}
+
+/* Sidebar section headings ("2 Ship 2 Harkinian" / "Ship of Harkinian"). */
+.menu__list .text--bold.text--center {
+  font-family: var(--soh-title-font);
+  font-weight: 400;
+  color: var(--ifm-color-primary);
+  padding: 0.5rem 0;
 }
