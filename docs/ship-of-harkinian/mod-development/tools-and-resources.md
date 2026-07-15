@@ -126,3 +126,8 @@ Naming & metadata for the following game assets:
 **Audio Sample Mapping**
 - Charts all WAV files from decomp to matching sound files in oot.otr and oot.o2r
 - https://docs.google.com/spreadsheets/d/1Yf_1Juzj06RZNmuZsWBSSX5ZD7wTRwjf8WxE25-2pJI/edit?usp=sharing
+
+**Link Flipbooks**
+- Eye and mouth flipbook texture names for Link, with the array name, directory, and description
+- Use the `SoH` tab; the `2Ship` tab covers Majora's Mask
+- https://docs.google.com/spreadsheets/d/1Yc3b-BRSnnCEPQSKtQKSEdi5oodFSx7bx8zJ05yMhH8/edit?gid=1922966857#gid=1922966857

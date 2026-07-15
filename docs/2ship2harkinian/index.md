@@ -6,3 +6,4 @@ sidebar_position: 1
 
 - ### [FAQ](./faq.md)
 - ### [Installation Guide](./installation-guide.md)
+- ### [Mod Development](./mod-development/)
