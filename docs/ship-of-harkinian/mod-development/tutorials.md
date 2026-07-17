@@ -9,7 +9,7 @@ Community-created tutorials and guides for Ship of Harkinian mod development.
 **Thebes Beginner Setup Guide**
 - Setting up the decomp and basic modding environment
 - Recommended for absolute beginners
-- Uses a newer decomp and Jameriquiah's Fast64
+- Uses a newer decomp and Jam's Fast64
 - https://youtu.be/7nnX7jrC46E
 
 :::tip

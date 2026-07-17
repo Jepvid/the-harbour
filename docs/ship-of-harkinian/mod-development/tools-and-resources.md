@@ -17,11 +17,11 @@ git clone https://github.com/zeldaret/oot.git
 It's highly recommended that if you are loading a blend file you previously used and made edits in with legacy Fast64, to create a brand new file and append your old blend file's contents into it instead of just loading the original blend. **Cached data and carried over legacy settings can and will cause material bugs and export errors.**
 
 :::warning
-If you have done mods using legacy Fast64. Jameriquiah's Fast64 imports and exports at a different scale compared to legacy. If you are opening a blend with DL's you imported from legacy, reimport the original DL, delete all geometry and materials **in edit mode**, then join your old DL into the new import.
+If you have done mods using legacy Fast64. Jam's Fast64 imports and exports at a different scale compared to legacy. If you are opening a blend with DL's you imported from legacy, reimport the original DL, delete all geometry and materials **in edit mode**, then join your old DL into the new import.
 :::
 The primary Blender plugin for creating and exporting models, materials, animations for SoH. This is a fork of the original, purpose built for SoH modding.
 
-**Repository:** https://github.com/Jameriquiah/fast64/tree/hm64
+**Repository:** https://github.com/HarbourMasters/fast64
 
 ### Retro
 

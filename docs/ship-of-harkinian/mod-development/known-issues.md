@@ -31,18 +31,6 @@ Workarounds: Must use an older version of Fast64, and avoid using texture filena
 
 ## Ship of Harkinian Fast64 and Decomp issues
 
-Ship of Harkinian requires specific versions of the Ocarina of Time decomp and Fast64
+Ship of Harkinian requires the Ocarina of Time decomp and Fast64
 
-There are 2 versions of Fast64 that can be used for Ship of Harkinian modding.
-
-- Legacy Fast64 by HM64 - https://github.com/HarbourMasters/fast64/tree/legacy
-- Fast64 HM64 Fork by Jameriquiah - https://github.com/Jameriquiah/fast64/tree/hm64
-
-**LEGACY Fast64**
-Requires a specific version of https://github.com/zeldaret/oot
-
-Do the install in the readme but before step **3** do `git checkout 21cb04d` to downgrade decomp to a version compatible with Legacy Fast64
-
-**Fast64 HM64 Fork by Jameriquiah**
-
-As of 2026-03-08 If you have the latest version of Jameriquiah's Fast64 Plugin then latest decomp will work with Fast64.
+- Fast64 HM64 Fork by Jam - https://github.com/HarbourMasters/fast64
