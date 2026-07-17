@@ -13,6 +13,7 @@ import child_6 from "./img/child_6.png"
 import segmentc from "./img/segmentc.png"
 import culloptions from "./img/culloptions.png"
 import matrixpath from "./img/matrixpath.png"
+import mtx_bytes from "./img/mtx_bytes.png"
 
 # Modding Tips
 
@@ -59,6 +60,37 @@ For materials that you want backface culling always off for, such as the inside 
 
 :::warning
 Any materials that use transparency such as translucency or cutouts, **EXCEPT decals** those are fine, will not be able to pass through Segment C and will need Segment C disabled or else they will cause all sorts of graphical glitches on the reflection. If you want these materials to not be flipped inside out in the reflection, the only option is the disable Segment C and disable both Cull Front and Cull Back.
+:::
+
+## GI Model Vertex Snapping Fix
+It's important to understand exactly what the issue was. Basically GI models for whatever reason are stored extremely tiny ingame, to the point where they hit the limit of the N64's vertex precision levels. You can even see this in Blender when importing one and snapping the camera to orthographic view on an axis. You can see how every vertex fits nicely on a grid. Other models do not have this issue because while they are confined to the very same grid, they are significantly larger so that grid becomes essentially unnoticeable.
+
+Inside an MTX file in O2R, I'll show this with the custom built one I made for GI models.
+The matrix data itself begins at offset `0x40`, and is split into two sections, `0x40` through 0x5F is your integer section, and `0x60` through `0x7F` is your fractional section. I will just talk about scale here since its all thats relevant right now.
+
+Your XYZ scale values are stored here: `X - 0x42`, `Z - 0x48`, `Y - 0x56`, with their fractional values being exactly 20 bytes later, and each of these values use 2 bytes each.
+
+<img src={mtx_bytes} alt="Matrix Bytes" width="474" />
+
+The integer section is your whole numbers. These values are signed 16-bit integers meaning the value can range anywhere between `-32768` and `32767` in decimal. What's important here is these values in this custom matrix are all zeroed out (`00 00`) resulting in a scale of `0`.
+
+But wait? 0 scale? That means shrunken into nothing right? Yes, it would if not for our fractional half, where you will see the bytes `1F 05` in each axis. What does this mean?
+
+Our fractional bytes are unsigned 16-bit integers, which means a range between `0` and `65535`. Same ammount of total possible numbers but the end result is a tad different here.
+The way the fractional section works is it's a literally fraction of 1 whole number. So in this use case we have `00 00` in integer scale, or `0` in decimal, and `1F 05` in our fractional scale.
+What this means is that since `65535` (the highest possible representable number here) divided by 50 equals `1310.7`, which rounds up to `1311`. `1311` converted to hexadecimal gives you the value of `051F`, and since the matrix data is little endian you have to swap the two bytes around, so `051F` becomes `1F 05`.
+
+Because `1311` is a 50th of `65535` this results in a fraction of `1/50` or when converted to a decimal ammount, this would be `0.02`.
+So with an integer scale of `0` and a fractional scale of `0.02`, the final applied scale after all is said and done is `0.02`
+
+So what *you* will want to do, in Blender when you make your GI model, scale it up by exactly **50** on all axes, and then apply transformations and then export. Next in your exported DisplayLists for your GI models, simply add this line to the top of your DisplayList right under the `<DisplayList Version="0">` at the very top.
+
+```xml
+    <Matrix Path="objects/gameplay_keep/gGiScaleMtx" Param="G_MTX_PUSH"/>
+```
+
+:::note
+`gGIScaleMtx` is built into both SoH and 2S2H, meaning you do not have to include it in your mod, you can call it from your DisplayList and it will work automatically.
 :::
 
 ## Exploding "Body Break" Enemies
