@@ -22,8 +22,10 @@ At boot, SoH scans `audio/custom/` and matches filenames against the SFX name li
 Rules:
 
 - **The sample plays as recorded.** Vanilla sounds are raw material that the game's scripts repitch heavily (the slingshot is a whoosh sample driven through a four-octave pitch dive) — a custom sample is a finished sound, so the scripted note pitches, pitch slides and vibrato are nullified. Only the subtle per-play effects vanilla applies on top remain: the small random pitch variation and distance-based scaling.
-- **Author at 32 kHz.** The engine treats the sample data as 32 kHz — resample your audio to 32 kHz before converting, or it will play at the wrong speed.
+- **Author at 32 kHz, or embed your own rate.** By default the engine treats the sample data as 32 kHz — resample your audio to 32 kHz before converting, or it will play at the wrong speed. If your conversion tool supports the newer **V3** sample format (e.g. the "Export as V3" option in the SoH Audio Tool), your file's actual sample rate is embedded and this restriction goes away — any rate works.
 - **Keep the duration close to vanilla.** The scripted note length still governs how long the sound is held — a sample much longer than the original sound will be faded out early.
+- **One sample per SFX id.** Some sounds (several of Link's voice lines, for example) randomly pick between a few different vanilla recordings on each play. An override replaces all of them with the same single sample, so that variation is lost — every play sounds identical instead of varying.
+- **Not supported at this time: music.** This system only overrides SFX-bank playback — it has no effect on background themes, song-teaching demos, warp song jingles, cutscene arrangements or any other music, even when a music sequence happens to reuse the same soundfont as an SFX sound.
 
 ## Pitched overrides (`.pitched` suffix)
 
@@ -33,16 +35,20 @@ Some sounds are *made of* pitch shifting — the ocarina builds its melodies by 
 audio/custom/NA_SE_OC_OCARINA.pitched
 ```
 
-A `.pitched` sample keeps the vanilla instrument tuning and the full scripted pitch behavior. It's a drop-in replacement for the vanilla raw sample: it must match the vanilla sample's rate and be recorded at the same reference pitch, exactly like the original.
+A `.pitched` sample keeps the full scripted pitch behavior — notes still play at the pitches the script asks for, just from your sample instead of the vanilla one.
+
+- **V3 format**: tuning is computed from your file's own embedded rate. Any rate works; it does not need to match the vanilla sample.
+- **Legacy (non-V3) format**: no rate is embedded, so the vanilla instrument's original tuning is reused unchanged. Your file must be recorded at the vanilla sample's exact rate and reference pitch, or every note will be off-pitch.
 
 ### The ocarina
 
-`NA_SE_OC_OCARINA` covers both **you playing** and the **game's playback** of a song (the echo after a correct song, Scarecrow's song, etc.), and switches between six instruments depending on context (ocarina, Malon, whistle, harp, grind organ, flute).
+`NA_SE_OC_OCARINA` covers both **you playing** and the **game's playback** of a song (the echo after a correct song, Scarecrow's song, etc.), and switches between six instruments depending on context (ocarina, Malon, whistle, harp, organ, flute).
 
 - Ocarina overrides must use `.pitched` — the melodies are pitch shifts of the sample, so an as-recorded override would play every note at the same pitch.
-- An `NA_SE_OC_OCARINA.pitched` override only replaces the **default ocarina** instrument — Malon, the whistle, harp, organ and flute keep their own sounds.
-- Match the vanilla sample's rate (32 kHz) and reference pitch (the game plays the raw sample ~8 semitones below its recorded pitch), and give the file loop points — ocarina notes sustain while a button is held.
-- The orchestrated ocarina heard in music (song-teaching demos, warp song jingles, cutscene arrangements) comes from the music soundfonts and is **not** affected by the override.
+- The override applies to both **your own live playing** and **the game's own playback** of a song (the echo after a correct song, Scarecrow's Song, warp songs, etc.) — the two cannot be given different sounds.
+- `NA_SE_OC_OCARINA` is the one SFX id behind all six instruments — the game swaps which instrument the channel plays through depending on context (the actual ocarina, Malon singing, the whistle, harp, grind organ, flute). An override only replaces the **default ocarina** instrument; the other five arrive under the same SFX id but a different instrument, so they're left untouched and keep their own sounds.
+- Record at the vanilla sample's rate (32 kHz) and reference pitch (the game plays the raw sample ~8 semitones below its recorded pitch) — or, using the V3 format, embed your own rate and skip matching it. Either way, give the file loop points — ocarina notes sustain while a button is held.
+- The ocarina heard in music sequences (Lost Woods' theme, for example) is not `NA_SE_OC_OCARINA` — see "Not supported at this time: music" above. If you're testing an ocarina override, listen for the confirmation echo after correctly playing a song, not the ambient music of an area.
 
 ---
 
