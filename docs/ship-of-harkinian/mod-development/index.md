@@ -12,3 +12,7 @@ Code however, is not stored in the o2rs, so we do not have the ability to suppor
 - [**Animations**](./animation-modding.md)!
 - [**Audio**](./audio-modding.md)!
 - [**Code**](./code-modding.md)!
+
+### Tutorials
+
+Looking for a step-by-step walkthrough of a specific trick (rigged DLs, flipbook animations, etc.) rather than general reference info? See the [Tutorials](./tutorials/index.md) section.
