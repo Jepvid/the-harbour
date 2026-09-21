@@ -2,6 +2,7 @@ import type {ReactNode} from 'react';
 import {useMemo} from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from './styles.module.css';
 
 type PortTag = 'Mod Support' | 'Multiplayer' | 'Enhanced Graphics' | 'HD Textures' | 'Widescreen' | 'Native PC';
@@ -184,11 +185,15 @@ function PortItem({port}: {port: Port}) {
 }
 
 function GameCard({game}: {game: GameItem}) {
+  // Resolve against baseUrl so the images work when the site is served
+  // from a subpath (GitHub Pages: /the-harbour/).
+  const imageUrl = useBaseUrl(game.imagePath);
+
   return (
     <div className={clsx('col col--4', styles.gameCard)}>
       <div className={styles.gameCardInner}>
         <div className={styles.gameImage}>
-          <img src={game.imagePath} alt={game.title} />
+          <img src={imageUrl} alt={game.title} />
         </div>
         <div className={styles.gameContent}>
           {/* <Heading as="h3" className={styles.gameTitle}>{game.title}</Heading> */}
