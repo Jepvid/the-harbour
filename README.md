@@ -26,16 +26,11 @@ This command generates static content into the `build` directory and can be serv
 
 ## Deployment
 
-Using SSH:
+The site is deployed to GitHub Pages by the [Deploy to GitHub Pages](.github/workflows/deploy.yml)
+workflow, which builds the site and publishes it on every push to the `Github-Pages` branch (it can
+also be run manually from the Actions tab).
 
-```bash
-USE_SSH=true yarn deploy
-```
+For this to work, the repository's **Settings → Pages → Build and deployment → Source** must be set
+to **GitHub Actions**.
 
-Not using SSH:
-
-```bash
-GIT_USER=<Your GitHub username> yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+The published site lives at <https://jepvid.github.io/the-harbour/>.
