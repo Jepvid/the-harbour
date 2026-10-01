@@ -2,15 +2,17 @@ import type {ReactNode} from 'react';
 import {useMemo} from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from './styles.module.css';
 
 type PortTag = 'Mod Support' | 'Multiplayer' | 'Enhanced Graphics' | 'HD Textures' | 'Widescreen' | 'Native PC';
 
 type Port = {
   name: string;
-  tags: PortTag[];
+  team?: string;
   docsPath?: string;
   downloadsUrl?: string;
+  modpageUrl?: string;
 };
 
 type GameItem = {
@@ -26,26 +28,47 @@ const GameList: GameItem[] = [
     ports: [
       {
         name: 'Ship of Harkinian',
-        tags: ['Mod Support', 'Enhanced Graphics', 'Widescreen', 'Native PC'],
-        downloadsUrl: 'https://github.com/HarbourMasters/shipwright/releases',
+        team: 'Harbour Masters',
         docsPath: '/docs/ship-of-harkinian',
+        downloadsUrl: 'https://github.com/HarbourMasters/shipwright/releases/latest',
+        modpageUrl: 'https://gamebanana.com/games/16121'
       },
     ],
   },
   {
     title: 'The Legend of Zelda: Majora\'s Mask',
-    imagePath: '/img/games/marorasmask.webp',
+    imagePath: '/img/games/mm.webp',
     ports: [
       {
-        name: 'Zelda 64: Recompiled',
-        tags: ['Mod Support', 'Enhanced Graphics', 'Widescreen', 'Native PC'],
-        downloadsUrl: 'https://github.com/Zelda64Recomp/Zelda64Recomp/releases',
-      },
-      {
-        name: '2 Ship 2 Harkinian',
-        tags: ['Mod Support', 'Enhanced Graphics', 'Widescreen', 'Native PC'],
+        name: '2Ship2Harkinian',
+        team: '2Ship2Harkinian',
         docsPath: '/docs/2ship2harkinian',
-        downloadsUrl: 'https://github.com/HarbourMasters/2ship2harkinian/releases',
+        downloadsUrl: 'https://github.com/2ship2harkinian/2ship2harkinian/releases/latest',
+        modpageUrl: 'https://gamebanana.com/games/20371'
+      },
+    ],
+  },
+  {
+    title: 'Starfox 64',
+    imagePath: '/img/games/starfox.webp',
+    ports: [
+      {
+        name: 'Starship',
+        team: 'Harbour Masters',
+        downloadsUrl: 'https://github.com/HarbourMasters/Starship/releases/latest',
+        modpageUrl: 'https://gamebanana.com/games/21612'
+      },
+    ],
+  },
+  {
+    title: 'Mario Kart 64',
+    imagePath: '/img/games/mariokart.webp',
+    ports: [
+      {
+        name: 'Spaghetti Kart',
+        team: 'Harbour Masters',
+        downloadsUrl: 'https://github.com/HarbourMasters/SpaghettiKart/releases/latest',
+        modpageUrl: 'https://gamebanana.com/games/22970'
       },
     ],
   },
@@ -55,24 +78,9 @@ const GameList: GameItem[] = [
     ports: [
       {
         name: 'GhostShip',
-        tags: ['Multiplayer', 'Enhanced Graphics', 'Widescreen', 'Native PC'],
-        downloadsUrl: 'https://github.com/HarbourMasters/ghostship/releases',
-      },
-    ],
-  },
-  {
-    title: 'Mario Kart 64',
-    imagePath: '/img/games/mariokart.webp',
-    ports: [
-      {
-        name: 'Mario Kart 64: Recompiled',
-        tags: ['Multiplayer', 'Enhanced Graphics', 'Widescreen', 'Native PC'],
-        downloadsUrl: 'https://github.com/sonicdcer/MarioKart64Recomp/releases',
-      },
-      {
-        name: 'Spaghetti Kart',
-        tags: ['Multiplayer', 'Native PC'],
-        downloadsUrl: 'https://github.com/HarbourMasters/SpaghettiKart/releases',
+        team: 'Harbour Masters',
+        downloadsUrl: 'https://github.com/HarbourMasters/ghostship/releases/latest',
+        modpageUrl: 'https://gamebanana.com/games/24131'
       },
     ],
   },
@@ -81,72 +89,26 @@ const GameList: GameItem[] = [
     imagePath: '/img/games/banjokazooie.webp',
     ports: [
       {
-        name: 'Banjo: Recompiled',
-        tags: ['Enhanced Graphics', 'Widescreen', 'Native PC'],
-        downloadsUrl: 'https://github.com/BanjoRecomp/BanjoRecomp/releases'
+        name: 'Lighthouse',
+        team: 'Harbour Masters',
+        downloadsUrl: 'https://github.com/HarbourMasters/Lighthouse/releases/latest',
+        modpageUrl: 'https://gamebanana.com/games/25172'
       },
     ],
   },
   {
-    title: 'Starfox 64',
-    imagePath: '/img/games/starfox.webp',
+    title: 'Paper Mario 64',
+    imagePath: '/img/games/papermario.webp',
     ports: [
       {
-        name: 'Starfox 64: Recompiled',
-        tags: ['Multiplayer', 'Enhanced Graphics', 'Widescreen', 'Native PC'],
-        downloadsUrl: 'https://github.com/sonicdcer/Starfox64Recomp/releases',
-      },
-      {
-        name: 'Starship',
-        tags: ['Mod Support', 'Enhanced Graphics', 'Widescreen', 'Native PC'],
-        downloadsUrl: 'https://github.com/HarbourMasters/Starship/releases',
-      },
-    ],
-  },
-  {
-    title: 'Goemon\'s Great Adventure',
-    imagePath: '/img/games/goemon64.jpg',
-    ports: [
-      {
-        name: 'Goemon 64: Recompiled',
-        tags: ['Multiplayer', 'Enhanced Graphics', 'Widescreen', 'Native PC'],
-        downloadsUrl: 'https://github.com/klorfmorf/Goemon64Recomp/releases',
-      },
-    ],
-  },
-  {
-    title: 'Dinosaur Planet',
-    imagePath: '/img/games/dinosaurplanet.jpg',
-    ports: [
-      {
-        name: 'Dinosaur Planet: Recompiled',
-        tags: ['Enhanced Graphics', 'Widescreen', 'Native PC'],
-        downloadsUrl: 'https://github.com/DinosaurPlanetRecomp/dino-recomp/releases',
-      },
-    ],
-  },
-  {
-    title: 'Perfect Dark',
-    imagePath: '/img/games/perfectdark.webp',
-    ports: [
-      {
-        name: 'Perfect Dark port',
-        tags: ['Multiplayer', 'Enhanced Graphics', 'Widescreen', 'Native PC'],
-        downloadsUrl: 'https://github.com/fgsfdsfgs/perfect_dark/releases',
+        name: 'Paperboat',
+        team: 'Harbour Masters',
+        downloadsUrl: 'https://github.com/HarbourMasters/PaperBoat/releases/latest',
+        modpageUrl: 'https://gamebanana.com/games/25857'
       },
     ],
   },
 ];
-
-// Fisher-Yates shuffle algorithm
-function shuffleArray<T>(array: T[]): T[] {
-  const shuffled = [...array];
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-  }
-  return shuffled;
-}
 
 function PortBadge({tag}: {tag: PortTag}) {
   return <span className={styles.portBadge}>{tag}</span>;
@@ -157,6 +119,7 @@ function PortItem({port}: {port: Port}) {
     <div className={styles.portItem}>
       <div className={styles.portHeader}>
         <h4 className={styles.portName}>{port.name}</h4>
+        <h5 className={styles.portTeam}>{"By "+port.team}</h5>
         {/* <div className={styles.portTags}>
           {port.tags.map((tag, idx) => (
             <PortBadge key={idx} tag={tag} />
@@ -171,9 +134,16 @@ function PortItem({port}: {port: Port}) {
              Downloads
            </Link>
          )}
-         {port.docsPath && (
+         {port.modpageUrl && (
            <Link
              className="button button--secondary button--sm"
+             to={port.modpageUrl}>
+             Mods
+           </Link>
+         )}
+         {port.docsPath && (
+           <Link
+             className="button button--primary button--sm"
              to={port.docsPath}>
              Docs
            </Link>
@@ -184,11 +154,15 @@ function PortItem({port}: {port: Port}) {
 }
 
 function GameCard({game}: {game: GameItem}) {
+  // Resolve against baseUrl so the images work when the site is served
+  // from a subpath (GitHub Pages: /the-harbour/).
+  const imageUrl = useBaseUrl(game.imagePath);
+
   return (
     <div className={clsx('col col--4', styles.gameCard)}>
       <div className={styles.gameCardInner}>
         <div className={styles.gameImage}>
-          <img src={game.imagePath} alt={game.title} />
+          <img src={imageUrl} alt={game.title} />
         </div>
         <div className={styles.gameContent}>
           {/* <Heading as="h3" className={styles.gameTitle}>{game.title}</Heading> */}
@@ -204,19 +178,11 @@ function GameCard({game}: {game: GameItem}) {
 }
 
 export default function HomepageFeatures(): ReactNode {
-  // Shuffle ports for each game on page load to prevent bias
-  const shuffledGameList = useMemo(() => {
-    return GameList.map(game => ({
-      ...game,
-      ports: shuffleArray(game.ports),
-    }));
-  }, []);
-
   return (
     <section className={styles.features}>
       <div className="container">
         <div className="row">
-          {shuffledGameList.map((game, idx) => (
+          {GameList.map((game, idx) => (
             <GameCard key={idx} game={game} />
           ))}
         </div>
